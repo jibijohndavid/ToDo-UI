@@ -15,9 +15,15 @@ $_checkbox-spacing: 23px;
         }
 
         &__list {
-            & > li:first-child {
-                border-top-color: transparent;
+            & > li {
+                border-color: #f1f1f4;
+
+                &:first-child {
+                    border-top-color: transparent;
+                }
             }
+
+
         }
 
         &__item {
@@ -46,6 +52,9 @@ $_checkbox-spacing: 23px;
                 }
 
                 &:checked {
+
+                    opacity: .9;
+
                     &:before {
                         border-color: $primary-color;
                     }

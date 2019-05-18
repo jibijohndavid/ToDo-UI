@@ -13,29 +13,13 @@ body {
         align-items: stretch;
     }
 
-    &-side-nav {
-        position: fixed;
-        height: 100%;
-        width: $app-sidebar-width;
-        padding: $_main-content-spacing 25px 0;
-        background-color: $primary-color-dark;
-        background: #203795;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #141A81, #203795);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #141A81, #203795); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-        @media screen and (max-width: 576px) {
-            display: none;
-        }
-
-    }
-
     &-main-content {
         padding: $_main-content-spacing 10px $_main-content-spacing $_main-content-spacing;
         margin-left: $app-sidebar-width;
         width:  600px;
         @media screen and (max-width: 576px) {
             margin-left: 0;
-            padding: 10px;
+            padding: 20px 25px;
         }
     }
 
@@ -74,74 +58,70 @@ body {
     }
 }
 
-//APP LOGIN STYLES
+// APP PROFILE SECTION
 .app {
-    &-login {
+    &-profile {
         &__container {
-            height: 100%;
-            width: 375px;
-            position: fixed;
-            background-color: #fafafa;
-            padding: 0 30px;
-            display: flex;
-            align-items: center;
-            overflow-y: scroll;
-
-            @media screen and (max-width: 576px) {
-                width: 100%;
-            }
-
-        }
-
-        &__desc {
-            width: calc(100% - 375px);
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 375px;
-            background: url('./images/login-bg.jpg') no-repeat;
-            background-size: cover;
-
-            @media screen and (max-width: 576px) {
-                display: none;
-            }
-        }
-
-        &__form {
-            position: relative;
-            input {
-                background-color: transparent;
-                border-color: transparent;
-                border-bottom-color: rgba(0, 0, 0, 0.1);
-                border-radius: 0; 
-                outline: none;
-                padding-top: 15px;
-
-                &:active, &:focus {
-                    background-color: transparent;
-                    border-color: transparent;
-                    border-bottom-color: rgba(0, 0, 0, 0.1);
-                    box-shadow: none;
-                }
-
-                &:not(:placeholder-shown) + label {
-                    transform: translateY(-13px);
-                    color: $primary-color;
-                    visibility: visible;
-                }
-            }
-            label {
-                position: absolute;
-                top: 8px;
-                left: 13px;
-                color: transparent;
-                visibility: hidden;
-                font-size: 12px;
-                opacity: .8;
-                transition: all .3s ease;
+            img {
+                height: 90px;
+                width: 90px;
             }
         }
     }
 }
 
-@import 'Components/app-task'
+// APP SIDENAV
+.app {
+    &-side-nav {
+        position: fixed;
+        height: 100%;
+        width: $app-sidebar-width;
+        padding: $_main-content-spacing 25px 0;
+        background: #203795;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #141A81, #203795);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #141A81, #203795); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        @media screen and (max-width: 576px) {
+            display: none;
+        }
+
+        &__menu {
+            & > li {
+                background-color: transparent;
+                padding:  8px 0;
+                font-size: 14px;
+                border-color: rgba(255, 255, 255, 0.05);
+
+                &:first-child {
+                    border-color: transparent;
+                }
+
+                a {
+                    color: rgba(255, 255, 255, 0.6);
+                    text-decoration: none;
+
+                    &:hover {
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+                }
+            }
+        }
+
+        &__icon {
+            margin-right: 5px;
+            img {
+                position: relative;
+                top: -2px;
+                height: 12px;
+            }
+        }
+
+    }
+}
+
+
+@import 'Components/app-search';
+@import 'Components/app-login';
+@import 'Components/app-task';
+
+@import 'Accesibility/app-dark';
