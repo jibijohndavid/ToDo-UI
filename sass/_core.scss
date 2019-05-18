@@ -15,7 +15,7 @@ body {
 
     &-side-nav {
         position: fixed;
-        height: 100%;;
+        height: 100%;
         width: $app-sidebar-width;
         padding: $_main-content-spacing 25px 0;
         background-color: $primary-color-dark;
@@ -69,6 +69,70 @@ body {
                     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14);
                 }
                 
+            }
+        }
+    }
+}
+
+//APP LOGIN STYLES
+.app {
+    &-login {
+        &__container {
+            height: 100%;
+            width: 375px;
+            position: fixed;
+            background-color: #fafafa;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        &__desc {
+            width: calc(100% - 375px);
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 375px;
+            background: url('./images/login-bg.jpg') no-repeat;
+            background-size: cover;
+
+            @media screen and (max-width: 576px) {
+                display: none;
+            }
+        }
+
+        &__form {
+            position: relative;
+            input {
+                background-color: transparent;
+                border-color: transparent;
+                border-bottom-color: rgba(0, 0, 0, 0.1);
+                border-radius: 0; 
+                outline: none;
+                padding-top: 15px;
+
+                &:active, &:focus {
+                    background-color: transparent;
+                    border-color: transparent;
+                    border-bottom-color: rgba(0, 0, 0, 0.1);
+                    box-shadow: none;
+                }
+
+                &:not(:placeholder-shown) + label {
+                    transform: translateY(-13px);
+                    color: $primary-color;
+                    visibility: visible;
+                }
+            }
+            label {
+                position: absolute;
+                top: 8px;
+                left: 13px;
+                color: transparent;
+                visibility: hidden;
+                font-size: 12px;
+                opacity: .8;
+                transition: all .3s ease;
             }
         }
     }
